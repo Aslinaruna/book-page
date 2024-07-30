@@ -1,0 +1,74 @@
+In the library of Alexandria, there's a peculiar book whose page numbering starts from 1. As you flip through the pages, the number of digits needed to represent the page numbers increases. A librarian is tasked with cataloging the total number of digits used in the book's pagination but needs help determining the total number of pages the book contains based on the count of digits.
+
+The challenge is to figure out the total number of pages in the book using the total count of digits provided for the entire pagination. If the given total count of digits does not match any possible number of pages based on the pagination rules, the program should declare, "Impossible!" indicating that the input might be incorrect or not applicable.
+
+Input Format
+
+A single integer, representing the total count of digits used in the pagination of the book. Input consists of a single integer, between 1 and 2,000,000,000, representing the mystical count of digits used in numbering the pages of the enchanted book.
+
+Constraints
+
+input N digit will be 1<=N<190
+
+Output Format
+
+The total number of pages in the book if the digit count is valid, or "Impossible!" if the digit count doesn't align with the pagination rules.
+
+Sample Input 0
+
+11
+Sample Output 0
+
+10
+Explanation 0
+
+The first 9 pages use 1 digit each, totaling 9 digits for pages 1 through 9. With 2 more digits available, only one more page can be numbered, which is page 10, using 2 digits. This perfectly fits the 11-digit input without any leftovers, allowing for 10 pages to be numbered in total.
+
+Sample Input 1
+
+25
+Sample Output 1
+
+17
+Explanation 1
+
+For the first 9 pages, 9 digits are used (1 digit per page). Pages 10 through 17 use 16 digits (2 digits per page). Therefore, 9 + 16 = 25 digits in total are used to number the pages up to page 17. This matches the given digit count exactly, making 17 the total number of pages that can be numbered with 25 digits.
+
+Sample Input 2
+
+189
+Sample Output 2
+
+99
+Explanation 2
+
+The first 9 pages use 9 digits. Pages 10 through 99 use 180 digits (90 pages * 2 digits per page). The total digit usage is 9 (for pages 1-9) + 180 (for pages 10-99) = 189 digits. This fits the input digit count perfectly, indicating that with 189 digits, you can number up to page 99.
+
+Sample Input 3
+
+24
+Sample Output 3
+
+Impossible!
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        
+        int s=n-9;
+        int d=s/2;
+        if(s%2==0)
+        {
+        int a=d+9;
+        System.out.println(a);
+        }
+        else
+            System.out.println("Impossible!");
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    }
+}
